@@ -1,0 +1,15 @@
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\bin\Debug\net8.0\RecipeManagementSystemInfrastructure.deps.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\bin\Debug\net8.0\RecipeManagementSystemInfrastructure.runtimeconfig.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\bin\Debug\net8.0\RecipeManagementSystemInfrastructure.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\bin\Debug\net8.0\RecipeManagementSystemInfrastructure.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.csproj.AssemblyReference.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.AssemblyInfoInputs.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.AssemblyInfo.cs
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.csproj.CoreCompileInputs.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.sourcelink.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\refint\RecipeManagementSystemInfrastructure.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\RecipeManagementSystemInfrastructure.genruntimeconfig.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemInfrastructure\obj\Debug\net8.0\ref\RecipeManagementSystemInfrastructure.dll

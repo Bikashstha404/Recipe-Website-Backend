@@ -1,0 +1,15 @@
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemApplication.deps.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemApplication.runtimeconfig.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemApplication.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemApplication.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.csproj.AssemblyReference.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.AssemblyInfoInputs.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.AssemblyInfo.cs
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.csproj.CoreCompileInputs.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.sourcelink.json
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\refint\RecipeManagementSystemApplication.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.genruntimeconfig.cache
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\ref\RecipeManagementSystemApplication.dll
