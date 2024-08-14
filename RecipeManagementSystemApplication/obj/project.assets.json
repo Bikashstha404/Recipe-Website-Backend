@@ -1502,6 +1502,20 @@
             "rid": "win"
           }
         }
+      },
+      "RecipeManagementSystemDomain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.7",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.7"
+        },
+        "compile": {
+          "bin/placeholder/RecipeManagementSystemDomain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RecipeManagementSystemDomain.dll": {}
+        }
       }
     }
   },
@@ -4096,12 +4110,19 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "RecipeManagementSystemDomain/1.0.0": {
+      "type": "project",
+      "path": "../RecipeManagementSystemDomain/RecipeManagementSystemDomain.csproj",
+      "msbuildProject": "../RecipeManagementSystemDomain/RecipeManagementSystemDomain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Microsoft.EntityFrameworkCore >= 8.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.7",
-      "Microsoft.EntityFrameworkCore.Tools >= 8.0.7"
+      "Microsoft.EntityFrameworkCore.Tools >= 8.0.7",
+      "RecipeManagementSystemDomain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4131,7 +4152,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {
+              "projectPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4149,6 +4174,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.7, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[8.0.7, )"

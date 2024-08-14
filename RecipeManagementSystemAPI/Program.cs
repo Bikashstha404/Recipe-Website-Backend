@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using RecipeManagementSystemAPI.Extensions;
+using RecipeManagementSystemInfrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

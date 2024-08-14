@@ -13,3 +13,6 @@ D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.pdb
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeManagementSystemApplication.genruntimeconfig.cache
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\ref\RecipeManagementSystemApplication.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemDomain.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\bin\Debug\net8.0\RecipeManagementSystemDomain.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemApplication\obj\Debug\net8.0\RecipeMa.DD22528B.Up2Date

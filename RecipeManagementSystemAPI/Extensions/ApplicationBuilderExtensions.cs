@@ -1,4 +1,6 @@
-﻿namespace RecipeManagementSystemAPI.Extensions
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace RecipeManagementSystemAPI.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
@@ -27,7 +29,18 @@
 
         public static async Task SeedRolesAsync(this IApplicationBuilder app)
         {
-            //Set user roles in here
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+                var roles = new[] { "Admin", "Cook", "FoodEnthusiast", "Planner"};
+                foreach (var role in roles)
+                {
+                    if (!await roleManager.RoleExistsAsync(role))
+                    {
+                        await roleManager.CreateAsync(new IdentityRole(role));
+                    }
+                }
+            }
         }
     }
 }

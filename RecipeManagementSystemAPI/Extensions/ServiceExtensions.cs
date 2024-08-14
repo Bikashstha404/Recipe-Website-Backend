@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using RecipeManagementSystemInfrastructure.Data;
 
 namespace RecipeManagementSystemAPI.Extensions
 {
@@ -17,6 +19,13 @@ namespace RecipeManagementSystemAPI.Extensions
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddDbContext<RecipeDbContext>(options =>
+            options.UseSqlServer(configuration.GetConnectionString("RecipeConnectionString")));
+
+            services.AddIdentityApiEndpoints<ApplicationUser>()
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<RecipeDbContext>();
         }
     }
 }
