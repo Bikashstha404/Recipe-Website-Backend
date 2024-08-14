@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using RecipeManagementSystemApplication.Interface;
 using RecipeManagementSystemApplication.Models;
 using RecipeManagementSystemApplication.Response;
-using RecipeManagementSystemDomain.Entities;
 using RecipeManagementSystemDomain.Enums;
 using RecipeManagementSystemInfrastructure.Data;
 using System;
@@ -61,7 +60,8 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             ApplicationUser user = new ApplicationUser
             {
                 UserName = signUpModel.Username,
-                Email = signUpModel.Email
+                Email = signUpModel.Email,
+                Role = signUpModel.Role,
             };
 
             var result = await _userManager.CreateAsync(user, signUpModel.Password);
@@ -81,6 +81,10 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                     else
                     {
                         await _userManager.AddToRoleAsync(user, "Admin");
+
+                        user.Role = null;
+                        await _userManager.UpdateAsync(user);
+
                         return new SignUpResponse
                         {
                             Success = true,
@@ -98,7 +102,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                     };
                 }
                 
-                if(signUpModel.Role != Roles.FoodEnthusiast)
+                if(signUpModel.Role == Roles.FoodEnthusiast)
                 {
                     await _userManager.AddToRoleAsync(user, "FoodEnthusiast");
                     return new SignUpResponse
@@ -108,7 +112,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                     };
                 }
                 
-                if (signUpModel.Role != Roles.Planner)
+                if (signUpModel.Role == Roles.Planner)
                 {
                     await _userManager.AddToRoleAsync(user, "Planner");
                     return new SignUpResponse

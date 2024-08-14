@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using RecipeManagementSystemApplication.Interface;
 using RecipeManagementSystemInfrastructure.Data;
+using RecipeManagementSystemInfrastructure.Implementation;
 
 namespace RecipeManagementSystemAPI.Extensions
 {
@@ -26,6 +28,8 @@ namespace RecipeManagementSystemAPI.Extensions
             services.AddIdentityApiEndpoints<ApplicationUser>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<RecipeDbContext>();
+
+            services.AddScoped<IAuth, AuthImplementation>();
         }
     }
 }

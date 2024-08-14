@@ -18,6 +18,8 @@ namespace RecipeManagementSystemAPI.Extensions
 
             app.UseHttpsRedirection();
 
+            app.UseRouting(); // This should be before UseEndpoints
+
             app.UseAuthorization();
 
             // UseEndpoints to map controllers

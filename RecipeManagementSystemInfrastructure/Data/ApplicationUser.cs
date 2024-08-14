@@ -10,6 +10,6 @@ namespace RecipeManagementSystemInfrastructure.Data
 {
     public class ApplicationUser : IdentityUser
     {
-        public Roles Role { get; set; }
+        public Roles? Role { get; set; }
     }
 }
