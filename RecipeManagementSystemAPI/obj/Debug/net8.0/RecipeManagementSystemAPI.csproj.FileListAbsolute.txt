@@ -148,3 +148,4 @@ D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\ne
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\RecipeManagementSystemApplication.pdb
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\RecipeManagementSystemDomain.pdb
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\RecipeManagementSystemInfrastructure.pdb
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

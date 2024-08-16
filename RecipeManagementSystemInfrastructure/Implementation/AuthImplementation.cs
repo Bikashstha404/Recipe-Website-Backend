@@ -137,5 +137,44 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                 };
             }
         }
+
+        public async Task<LoginResponse> Login(LoginModel loginModel)
+        {
+            var userData = await _userManager.FindByEmailAsync(loginModel.Email);
+            if (userData == null)
+            {
+                return new LoginResponse
+                {
+                    Success = false,
+                    AccessToken = null,
+                    RefreshToken = null,
+                    Message = "No user found with this email address."
+                };
+            }
+
+            var user = await _signInManager.PasswordSignInAsync(userData.UserName, loginModel.Password, false, false);
+            if (user.Succeeded)
+            {
+                Token token = new Token(_configuration, _userManager);
+                var accessToken = await token.CreateAccessToken(userData);
+                return new LoginResponse
+                {
+                    Success = true,
+                    AccessToken = accessToken,
+                    RefreshToken = null,
+                    Message = "Login Successfull"
+                };
+            }
+            else
+            {
+                return new LoginResponse
+                {
+                    Success = false,
+                    AccessToken = null,
+                    RefreshToken = null,
+                    Message = "Invalid Password"
+                };
+            }
+        }
     }
 }
