@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,5 +56,18 @@ namespace RecipeManagementSystemInfrastructure.Implementation
 
             return accessToken;
         }
+
+        public string CreateRefreshToken()
+        {
+            string refreshToken;
+            do
+            {
+                var tokenBytes = RandomNumberGenerator.GetBytes(64);
+                refreshToken = Convert.ToBase64String(tokenBytes);
+
+            }while(_userManager.Users.Any(a => a.RefreshToken == refreshToken));
+            return refreshToken;
+        }
+
     }
 }

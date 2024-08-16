@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RecipeManagementSystemInfrastructure.Implementation
 {
@@ -157,13 +158,31 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             {
                 Token token = new Token(_configuration, _userManager);
                 var accessToken = await token.CreateAccessToken(userData);
-                return new LoginResponse
+                var refreshToken = token.CreateRefreshToken();
+                userData.RefreshToken = refreshToken;
+                userData.RefreshTokenExpiryTime = DateTime.Now.AddDays(7);
+                var result = await _userManager.UpdateAsync(userData);
+
+                if (result.Succeeded)
                 {
-                    Success = true,
-                    AccessToken = accessToken,
-                    RefreshToken = null,
-                    Message = "Login Successfull"
-                };
+                    return new LoginResponse
+                    {
+                        Success = true,
+                        AccessToken = accessToken,
+                        RefreshToken = refreshToken,
+                        Message = "Login Successfull"
+                    };
+                }
+                else
+                {
+                    return new LoginResponse
+                    {
+                        Success = false,
+                        AccessToken = null,
+                        RefreshToken = null,
+                        Message = $"Error while updating Data.Error: {string.Join(", ", result.Errors.Select(e => e.Description))}"
+                    };
+                }
             }
             else
             {
