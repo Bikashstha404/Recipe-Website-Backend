@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using RecipeManagementSystemApplication.Interface;
 using RecipeManagementSystemApplication.Models;
@@ -8,6 +9,7 @@ using RecipeManagementSystemInfrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -192,6 +194,61 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                     AccessToken = null,
                     RefreshToken = null,
                     Message = "Invalid Password"
+                };
+            }
+        }
+
+        public async Task<RefreshTokenResponse> RefreshToken(string accessToken, string refreshToken)
+        {
+            Token token = new Token(_configuration, _userManager);
+            var principle = token.GetPrincipalFromExpiredToken(accessToken);
+            var identity = principle.Identity as ClaimsIdentity;
+            string email = "";
+            if(identity != null)
+            {
+                var emailClaim = identity.Claims.FirstOrDefault(c => c.Type == "Email");
+                if(emailClaim != null)
+                {
+                    email = emailClaim.Value;
+                }
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if(user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+            {
+                return new RefreshTokenResponse
+                {
+                    Success = false,
+                    AccessToken = null,
+                    RefreshToken = null,
+                    Message = "Invalid Request"
+                };
+            }
+
+            var newAccessToken = await token.CreateAccessToken(user);
+            var newRefreshToken = token.CreateRefreshToken();
+
+            user.RefreshToken = newRefreshToken;
+            var result = await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                return new RefreshTokenResponse
+                {
+                    Success = true,
+                    AccessToken = newAccessToken,
+                    RefreshToken = newRefreshToken,
+                    Message = "Token Refresh Successfully"
+                };
+            }
+            else
+            {
+                return new RefreshTokenResponse
+                {
+                    Success = false,
+                    AccessToken = null,
+                    RefreshToken = null,
+                    Message = $"Error while updating Data. Error: {string.Join(", ", result.Errors.Select(e => e.Description))}"
                 };
             }
         }

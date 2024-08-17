@@ -11,7 +11,7 @@ namespace RecipeManagementSystemApplication.Interface
     public interface IAuth
     {
         Task<SignUpResponse> SignUp(SignUpModel signUpModel);
-
         Task<LoginResponse> Login(LoginModel loginModel);
+        Task<RefreshTokenResponse> RefreshToken(string accessToken, string refreshToken);
     }
 }

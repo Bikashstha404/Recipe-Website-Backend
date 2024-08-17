@@ -48,5 +48,26 @@ namespace RecipeManagementSystemAPI.Controllers
                 return BadRequest(response.Message);
             }
         }
+
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken(TokenApiDto tokenApiDto)
+        {
+            var accessToken = tokenApiDto.AccessToken;
+            var refreshToken = tokenApiDto.RefreshToken;
+
+            var response = await _iAuth.RefreshToken(accessToken, refreshToken);
+            if (response.Success)
+            {
+                return Ok(new TokenApiDto()
+                {
+                    AccessToken = response.AccessToken,
+                    RefreshToken = response.RefreshToken,
+                });
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        } 
     }
 }
