@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using RecipeManagementSystemApplication.Interface;
 using RecipeManagementSystemInfrastructure.Data;
 using RecipeManagementSystemInfrastructure.Implementation;
@@ -42,7 +43,40 @@ namespace RecipeManagementSystemAPI.Extensions
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+                    Title = "Recipe Management API",
+                    Version = "v1"
+                });
+
+                options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+                {
+                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    Description = "Please Enter a Token",
+                    Name = "Authorization",
+                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+
+                options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                             Reference = new OpenApiReference
+                             {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                             }
+                        },
+                        new string[]{}
+                    }
+                });
+            });
+
 
             services.AddDbContext<RecipeDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("RecipeConnectionString")));

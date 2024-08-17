@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RecipeManagementSystemAPI.Dtos;
 using RecipeManagementSystemApplication.Interface;
@@ -68,6 +69,13 @@ namespace RecipeManagementSystemAPI.Controllers
             {
                 return BadRequest(response.Message);
             }
-        } 
+        }
+
+        [Authorize]
+        [HttpGet("Test")]
+        public async Task<IActionResult> Test()
+        {
+            return Ok("Hello world");
+        }
     }
 }
