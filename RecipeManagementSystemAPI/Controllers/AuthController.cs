@@ -13,10 +13,12 @@ namespace RecipeManagementSystemAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuth _iAuth;
+        private readonly IEmailService _iEmailService;
 
-        public AuthController(IAuth iAuth)
+        public AuthController(IAuth iAuth, IEmailService iEmailService)
         {
             _iAuth = iAuth;
+            _iEmailService = iEmailService;
         }
         [HttpPost("SignUp")]
         public async Task<IActionResult> SignUp(SignUpModel signUpModel)
@@ -71,11 +73,28 @@ namespace RecipeManagementSystemAPI.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet("Test")]
-        public async Task<IActionResult> Test()
+        [HttpPost("SendResetPasswordEmail/{email}")]
+        public async Task<IActionResult> SendResetPasswordEmail(string email)
         {
-            return Ok("Hello world");
+            var response = await _iAuth.EmailModel(email);
+            EmailModel emailModel;
+            if (response.Success)
+            {
+                emailModel = response.EmailModel;
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+
+            _iEmailService.SendEmail(emailModel);
+            return Ok(new 
+            {
+                StatusCode = 200,
+                Message = "Email Sent!" 
+            });
+
         }
+        
     }
 }

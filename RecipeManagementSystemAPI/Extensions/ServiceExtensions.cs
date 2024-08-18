@@ -86,6 +86,7 @@ namespace RecipeManagementSystemAPI.Extensions
             .AddEntityFrameworkStores<RecipeDbContext>();
 
             services.AddScoped<IAuth, AuthImplementation>();
+            services.AddScoped<IEmailService, EmailServicemImplementation>();
         }
     }
 }

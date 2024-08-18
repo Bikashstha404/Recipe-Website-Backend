@@ -6,10 +6,12 @@ using RecipeManagementSystemApplication.Models;
 using RecipeManagementSystemApplication.Response;
 using RecipeManagementSystemDomain.Enums;
 using RecipeManagementSystemInfrastructure.Data;
+using RecipeManagementSystemInfrastructure.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -249,6 +251,46 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                     AccessToken = null,
                     RefreshToken = null,
                     Message = $"Error while updating Data. Error: {string.Join(", ", result.Errors.Select(e => e.Description))}"
+                };
+            }
+        }
+
+        public async Task<EmailModelResponse> EmailModel(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if(user == null)
+            {
+                return new EmailModelResponse
+                {
+                    Success = false,
+                    EmailModel = null,
+                    Message = "Email doesn't exist."
+                };
+            }
+
+            var tokenBytes = RandomNumberGenerator.GetBytes(64);
+            var emailToken = Convert.ToBase64String(tokenBytes);
+            user.ResetPasswordToken = emailToken;
+            user.ResetPasswordExpiryTime = DateTime.Now.AddMinutes(10);
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                var emailModel = new EmailModel(email, "Reset Password", EmailBody.EmailStringBody(email, emailToken));
+                return new EmailModelResponse
+                {
+                    Success = true,
+                    EmailModel = emailModel,
+                    Message = "Email Model Sent Successfully"
+                };
+            }
+            else
+            {
+                return new EmailModelResponse
+                {
+                    Success = false,
+                    EmailModel = null,
+                    Message = $"Error while updating Database. Error: {string.Join(", ", result.Errors.Select(e => e.Description))}",
                 };
             }
         }
