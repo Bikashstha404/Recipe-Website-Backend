@@ -96,5 +96,22 @@ namespace RecipeManagementSystemAPI.Controllers
 
         }
         
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
+        {
+            var response = await _iAuth.ResetPassword(resetPasswordModel);
+            if (response.Success)
+            {
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = response.Message
+                });
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
     }
 }

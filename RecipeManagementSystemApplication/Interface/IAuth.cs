@@ -14,5 +14,6 @@ namespace RecipeManagementSystemApplication.Interface
         Task<LoginResponse> Login(LoginModel loginModel);
         Task<RefreshTokenResponse> RefreshToken(string accessToken, string refreshToken);
         Task<EmailModelResponse> EmailModel(string email);
+        Task<ResetPasswordResponse> ResetPassword(ResetPasswordModel resetPasswordModel);
     }
 }

@@ -294,5 +294,51 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                 };
             }
         }
+        public async Task<ResetPasswordResponse> ResetPassword(ResetPasswordModel resetPasswordModel)
+        {
+            var emailToken = resetPasswordModel.EmailToken;
+            var user = await _userManager.FindByEmailAsync(resetPasswordModel.Email);
+
+            if (user == null)
+            {
+                return new ResetPasswordResponse
+                {
+                    Success = false,
+                    Message = "User with this email doesn't exist."
+                };
+            }
+
+            var resetToken = user.ResetPasswordToken;
+            var resetTokenExpiry = user.ResetPasswordExpiryTime;
+
+            if (emailToken != resetToken || resetTokenExpiry < DateTime.Now)
+            {
+                return new ResetPasswordResponse
+                {
+                    Success = false,
+                    Message = "Token is either wrong or expired."
+                };
+            }
+
+            var passwordHasher = new PasswordHasher<ApplicationUser>();
+            user.PasswordHash = passwordHasher.HashPassword(user, resetPasswordModel.NewPassword);
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return new ResetPasswordResponse
+                {
+                    Success = true,
+                    Message = "Password Succesfully Changed"
+                };
+            }
+            else
+            {
+                return new ResetPasswordResponse
+                {
+                    Success = false,
+                    Message = "Error occurend during updating new password in the database."
+                };
+            }
+        }
     }
 }
