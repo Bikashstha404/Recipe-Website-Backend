@@ -3,7 +3,6 @@ D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\ne
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.AssemblyInfoInputs.cache
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.AssemblyInfo.cs
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.csproj.CoreCompileInputs.cache
-D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.sourcelink.json
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\appsettings.Development.json
@@ -154,3 +153,4 @@ D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\ne
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\MimeKit.dll
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\NETCore.MailKit.dll
 D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\My Own Projects\RecipeManagementSystem\RecipeManagementSystemAPI\obj\Debug\net8.0\RecipeManagementSystemAPI.MvcApplicationPartsAssemblyInfo.cs

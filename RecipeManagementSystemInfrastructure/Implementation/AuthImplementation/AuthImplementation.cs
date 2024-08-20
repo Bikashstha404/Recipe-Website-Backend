@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using RecipeManagementSystemApplication.Interface;
-using RecipeManagementSystemApplication.Models;
-using RecipeManagementSystemApplication.Response;
+using RecipeManagementSystemApplication.Models.AuthModels;
+using RecipeManagementSystemApplication.Response.SignUpAndLogin;
 using RecipeManagementSystemDomain.Enums;
 using RecipeManagementSystemInfrastructure.Data;
 using RecipeManagementSystemInfrastructure.Helpers;
@@ -16,7 +16,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace RecipeManagementSystemInfrastructure.Implementation
+namespace RecipeManagementSystemInfrastructure.Implementation.AuthImplementation
 {
     public class AuthImplementation : IAuth
     {
@@ -35,7 +35,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             var userData = await _userManager.FindByEmailAsync(signUpModel.Email);
             var username = await _userManager.FindByNameAsync(signUpModel.Username);
 
-            if(userData != null)
+            if (userData != null)
             {
                 return new SignUpResponse
                 {
@@ -70,9 +70,9 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             };
 
             var result = await _userManager.CreateAsync(user, signUpModel.Password);
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
-                if(signUpModel.Email == _configuration["AdminEmail"])
+                if (signUpModel.Email == _configuration["AdminEmail"])
                 {
                     var adminExists = await _userManager.GetUsersInRoleAsync("Admin");
                     if (adminExists.Any())
@@ -97,8 +97,9 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                         };
                     }
                 }
-                
-                if(signUpModel.Role == Roles.Cook){
+
+                if (signUpModel.Role == Roles.Cook)
+                {
                     await _userManager.AddToRoleAsync(user, "Cook");
                     return new SignUpResponse
                     {
@@ -106,8 +107,8 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                         Message = "Cook Registration Successfull."
                     };
                 }
-                
-                if(signUpModel.Role == Roles.FoodEnthusiast)
+
+                if (signUpModel.Role == Roles.FoodEnthusiast)
                 {
                     await _userManager.AddToRoleAsync(user, "FoodEnthusiast");
                     return new SignUpResponse
@@ -116,7 +117,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                         Message = "FoodEnthusiast Registration Successfull."
                     };
                 }
-                
+
                 if (signUpModel.Role == Roles.Planner)
                 {
                     await _userManager.AddToRoleAsync(user, "Planner");
@@ -206,17 +207,17 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             var principle = token.GetPrincipalFromExpiredToken(accessToken);
             var identity = principle.Identity as ClaimsIdentity;
             string email = "";
-            if(identity != null)
+            if (identity != null)
             {
                 var emailClaim = identity.Claims.FirstOrDefault(c => c.Type == "Email");
-                if(emailClaim != null)
+                if (emailClaim != null)
                 {
                     email = emailClaim.Value;
                 }
             }
 
             var user = await _userManager.FindByEmailAsync(email);
-            if(user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
+            if (user is null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.Now)
             {
                 return new RefreshTokenResponse
                 {
@@ -258,7 +259,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
         public async Task<EmailModelResponse> EmailModel(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
-            if(user == null)
+            if (user == null)
             {
                 return new EmailModelResponse
                 {

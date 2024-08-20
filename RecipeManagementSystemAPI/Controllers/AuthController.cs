@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RecipeManagementSystemAPI.Dtos;
 using RecipeManagementSystemApplication.Interface;
-using RecipeManagementSystemApplication.Models;
-using RecipeManagementSystemApplication.Response;
+using RecipeManagementSystemApplication.Models.AuthModels;
+using RecipeManagementSystemApplication.Response.SignUpAndLogin;
 
 namespace RecipeManagementSystemAPI.Controllers
 {

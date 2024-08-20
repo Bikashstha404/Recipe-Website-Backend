@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeManagementSystemApplication.Models
+namespace RecipeManagementSystemApplication.Models.AuthModels
 {
     public class LoginModel
     {

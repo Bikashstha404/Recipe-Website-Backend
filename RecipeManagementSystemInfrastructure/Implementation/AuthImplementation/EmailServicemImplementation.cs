@@ -2,14 +2,14 @@
 using Microsoft.Extensions.Configuration;
 using MimeKit;
 using RecipeManagementSystemApplication.Interface;
-using RecipeManagementSystemApplication.Models;
+using RecipeManagementSystemApplication.Models.AuthModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeManagementSystemInfrastructure.Implementation
+namespace RecipeManagementSystemInfrastructure.Implementation.AuthImplementation
 {
     public class EmailServicemImplementation : IEmailService
     {

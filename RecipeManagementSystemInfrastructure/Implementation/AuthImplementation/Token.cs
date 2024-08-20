@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeManagementSystemInfrastructure.Implementation
+namespace RecipeManagementSystemInfrastructure.Implementation.AuthImplementation
 {
     public class Token
     {
@@ -65,7 +65,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
                 var tokenBytes = RandomNumberGenerator.GetBytes(64);
                 refreshToken = Convert.ToBase64String(tokenBytes);
 
-            }while(_userManager.Users.Any(a => a.RefreshToken == refreshToken));
+            } while (_userManager.Users.Any(a => a.RefreshToken == refreshToken));
             return refreshToken;
         }
 

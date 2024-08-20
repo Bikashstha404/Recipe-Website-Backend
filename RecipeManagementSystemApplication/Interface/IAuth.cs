@@ -1,5 +1,5 @@
-﻿using RecipeManagementSystemApplication.Models;
-using RecipeManagementSystemApplication.Response;
+﻿using RecipeManagementSystemApplication.Models.AuthModels;
+using RecipeManagementSystemApplication.Response.SignUpAndLogin;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeManagementSystemApplication.Response
+namespace RecipeManagementSystemApplication.Response.SignUpAndLogin
 {
-    public class RefreshTokenResponse
+    public class SignUpResponse
     {
         public bool Success { get; set; }
-        public string AccessToken { get; set; }
-        public string RefreshToken { get; set; }
         public string Message { get; set; }
     }
 }

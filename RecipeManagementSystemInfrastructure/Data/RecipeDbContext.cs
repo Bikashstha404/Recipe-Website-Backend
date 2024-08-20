@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RecipeManagementSystemDomain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace RecipeManagementSystemInfrastructure.Data
         {
 
         }
+        public DbSet<Recipe> Recipes { get; set; }
     }
 }

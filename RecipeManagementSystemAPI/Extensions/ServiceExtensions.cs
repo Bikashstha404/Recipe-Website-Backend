@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RecipeManagementSystemAPI.Mappers;
 using RecipeManagementSystemApplication.Interface;
 using RecipeManagementSystemInfrastructure.Data;
 using RecipeManagementSystemInfrastructure.Implementation;
+using RecipeManagementSystemInfrastructure.Implementation.AuthImplementation;
 using System.Text;
 
 namespace RecipeManagementSystemAPI.Extensions
@@ -87,6 +89,8 @@ namespace RecipeManagementSystemAPI.Extensions
 
             services.AddScoped<IAuth, AuthImplementation>();
             services.AddScoped<IEmailService, EmailServicemImplementation>();
+            services.AddScoped<IRecipe, RecipeImplementation>();
+            services.AddScoped<IRecipeMapper, RecipeMapper>();
         }
     }
 }

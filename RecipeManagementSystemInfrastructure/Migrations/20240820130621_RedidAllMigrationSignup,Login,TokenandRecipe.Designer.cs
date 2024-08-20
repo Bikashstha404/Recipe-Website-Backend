@@ -12,8 +12,8 @@ using RecipeManagementSystemInfrastructure.Data;
 namespace RecipeManagementSystemInfrastructure.Migrations
 {
     [DbContext(typeof(RecipeDbContext))]
-    [Migration("20240814162938_SetRoleToNullable")]
-    partial class SetRoleToNullable
+    [Migration("20240820130621_RedidAllMigrationSignup,Login,TokenandRecipe")]
+    partial class RedidAllMigrationSignupLoginTokenandRecipe
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,6 +158,70 @@ namespace RecipeManagementSystemInfrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("RecipeManagementSystemDomain.EntitesTypesModel.Ingredient", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Quantity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("RecipeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeId");
+
+                    b.ToTable("Ingredient");
+                });
+
+            modelBuilder.Entity("RecipeManagementSystemDomain.Entities.Recipe", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripton")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MainCategory")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("PrepTime")
+                        .HasColumnType("time");
+
+                    b.Property<string>("Preparation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubCategory")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Recipes");
+                });
+
             modelBuilder.Entity("RecipeManagementSystemInfrastructure.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -199,6 +263,18 @@ namespace RecipeManagementSystemInfrastructure.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ResetPasswordExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ResetPasswordToken")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Role")
                         .HasColumnType("int");
@@ -275,6 +351,18 @@ namespace RecipeManagementSystemInfrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("RecipeManagementSystemDomain.EntitesTypesModel.Ingredient", b =>
+                {
+                    b.HasOne("RecipeManagementSystemDomain.Entities.Recipe", null)
+                        .WithMany("Ingredients")
+                        .HasForeignKey("RecipeId");
+                });
+
+            modelBuilder.Entity("RecipeManagementSystemDomain.Entities.Recipe", b =>
+                {
+                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }
