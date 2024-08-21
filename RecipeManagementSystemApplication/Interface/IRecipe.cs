@@ -12,8 +12,7 @@ namespace RecipeManagementSystemApplication.Interface
     public interface IRecipe
     {
         Task<RecipeResponse> AddRecipe(Recipe recipe);
-        Task<RecipeResponse> EditRecipe();
-        Task<RecipeResponse> UpdateRecipe();
+        Task<RecipeResponse> EditRecipe(RecipeEditModel recipeEditModel);
         Task<RecipeResponse> DeleteRecipe();
     }
 }

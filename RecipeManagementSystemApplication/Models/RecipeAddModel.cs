@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RecipeManagementSystemApplication.Models
 {
-    public class RecipeModel
+    public class RecipeAddModel
     {
         public string Title { get; set; }
         public string Descripton { get; set; }

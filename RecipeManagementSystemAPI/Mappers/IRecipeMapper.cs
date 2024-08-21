@@ -5,6 +5,6 @@ namespace RecipeManagementSystemAPI.Mappers
 {
     public interface IRecipeMapper
     {
-        Recipe AddRecipe(RecipeModel recipeModel);
+        Recipe AddRecipe(RecipeAddModel recipeModel);
     }
 }

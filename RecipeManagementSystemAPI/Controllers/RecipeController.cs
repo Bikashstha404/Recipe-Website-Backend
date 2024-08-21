@@ -31,7 +31,9 @@ namespace RecipeManagementSystemAPI.Controllers
         [HttpGet("GetAllRecipes")]
         public IActionResult GetAllRecipes()
         {
-            var recipes = dbContext.Recipes.ToList();
+            var recipes = dbContext.Recipes
+                .Include(r => r.Ingredients)
+                .ToList();
 
             if (recipes == null || recipes.Count == 0)
             {
@@ -40,8 +42,9 @@ namespace RecipeManagementSystemAPI.Controllers
 
             return Ok(recipes);
         }
+
         [HttpPost("AddRecipe")]
-        public async Task<IActionResult> AddRecipe(RecipeModel recipeModel)
+        public async Task<IActionResult> AddRecipe(RecipeAddModel recipeModel)
         {
             Recipe recipe = _iRecipeMapper.AddRecipe(recipeModel);
             if(recipe != null)
@@ -70,6 +73,20 @@ namespace RecipeManagementSystemAPI.Controllers
                 return BadRequest("Error occured during adding recipe model.");
             }
 
+        }
+
+        [HttpPost("EditRecipe")]
+        public async Task<IActionResult> EditRecipe(RecipeEditModel recipeEditModel)
+        {
+            var response = await _iRecipe.EditRecipe(recipeEditModel);
+            if (response.Success)
+            {
+                return Ok(response.Message);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
         }
     }
 }

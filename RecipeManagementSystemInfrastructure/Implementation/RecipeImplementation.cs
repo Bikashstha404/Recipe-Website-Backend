@@ -23,14 +23,14 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             _dbContext = dbContext;
         }
 
-        public async Task<AddRecipeResponse> AddRecipe(Recipe recipe)
+        public async Task<RecipeResponse> AddRecipe(Recipe recipe)
         {
             try
             {
                 await _dbContext.Recipes.AddAsync(recipe);
                 await _dbContext.SaveChangesAsync();
 
-                return new AddRecipeResponse
+                return new RecipeResponse
                 {
                     Success = true,
                     Message = "Recipe Added Successfully"
@@ -38,7 +38,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             }
             catch(Exception ex)
             {
-                return new AddRecipeResponse
+                return new RecipeResponse
                 {
                     Success = false,
                     Message = ex.Message,
@@ -47,5 +47,41 @@ namespace RecipeManagementSystemInfrastructure.Implementation
 
 
         }
+
+        public async Task<RecipeResponse> EditRecipe(RecipeEditModel recipeEditModel)
+        {
+            Recipe recipeData = await _dbContext.Recipes.FindAsync(recipeEditModel.Id);
+            if(recipeData == null)
+            {
+                return new RecipeResponse
+                {
+                    Success = false,
+                    Message = "Recipe with this id doesn't exists."
+                };
+            }
+
+            recipeData.Title = recipeEditModel.Title;
+            recipeData.Descripton = recipeEditModel.Descripton;
+            recipeData.PrepTime = recipeEditModel.PrepTime;
+            recipeData.Calories = recipeEditModel.Calories;
+            recipeData.MainCategory = recipeEditModel.MainCategory;
+            recipeData.SubCategory = recipeEditModel.SubCategory;
+            recipeData.ImageUrl = recipeEditModel.ImageUrl;
+            recipeData.Ingredients = recipeEditModel.Ingredients;
+            recipeData.Preparation = recipeEditModel.Preparation;
+
+            await _dbContext.SaveChangesAsync();
+            return new RecipeResponse
+            {
+                Success = true,
+                Message = "Recipe Updated Successfully."
+            };
+        }
+
+        public Task<RecipeResponse> DeleteRecipe()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

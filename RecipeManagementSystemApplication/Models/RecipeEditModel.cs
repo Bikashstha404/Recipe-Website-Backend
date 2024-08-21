@@ -2,16 +2,14 @@
 using RecipeManagementSystemDomain.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecipeManagementSystemDomain.Entities
+namespace RecipeManagementSystemApplication.Models
 {
-    public class Recipe
+    public class RecipeEditModel
     {
-        [Key]
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Descripton { get; set; }
@@ -24,4 +22,3 @@ namespace RecipeManagementSystemDomain.Entities
         public string Preparation { get; set; }
     }
 }
- 

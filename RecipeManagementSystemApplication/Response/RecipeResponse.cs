@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecipeManagementSystemApplication.Response
 {
-    public class AddRecipeResponse
+    public class RecipeResponse
     {
         public bool Success { get; set; }
         public string Message { get; set; }

@@ -5020,11 +5020,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\RecipeManagementSystemInfrastructure.csproj",
+      "projectUniqueName": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\RecipeManagementSystemInfrastructure.csproj",
       "projectName": "RecipeManagementSystemInfrastructure",
-      "projectPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\RecipeManagementSystemInfrastructure.csproj",
+      "projectPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\RecipeManagementSystemInfrastructure.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\obj\\",
+      "outputPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemInfrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5042,11 +5042,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemApplication\\RecipeManagementSystemApplication.csproj": {
-              "projectPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemApplication\\RecipeManagementSystemApplication.csproj"
+            "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemApplication\\RecipeManagementSystemApplication.csproj": {
+              "projectPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemApplication\\RecipeManagementSystemApplication.csproj"
             },
-            "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {
-              "projectPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj"
+            "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {
+              "projectPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj"
             }
           }
         }

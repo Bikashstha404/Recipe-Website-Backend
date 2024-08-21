@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {}
+    "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {}
   },
   "projects": {
-    "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {
+    "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj",
+        "projectUniqueName": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj",
         "projectName": "RecipeManagementSystemDomain",
-        "projectPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj",
+        "projectPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\RecipeManagementSystemDomain.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\My Own Projects\\RecipeManagementSystem\\RecipeManagementSystemDomain\\obj\\",
+        "outputPath": "D:\\My Own Projects\\Recipe\\RecipeManagementSystem\\RecipeManagementSystemDomain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -7,7 +7,7 @@ namespace RecipeManagementSystemAPI.Mappers
 {
     public class RecipeMapper : IRecipeMapper
     {
-        public Recipe AddRecipe(RecipeModel recipeModel)
+        public Recipe AddRecipe(RecipeAddModel recipeModel)
         {
             Recipe recipe = new Recipe
             {
