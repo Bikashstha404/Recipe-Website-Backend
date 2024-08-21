@@ -78,9 +78,27 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             };
         }
 
-        public Task<RecipeResponse> DeleteRecipe()
+        public async Task<RecipeResponse> DeleteRecipe(Guid id)
         {
-            throw new NotImplementedException();
+            var recipeData = await _dbContext.Recipes
+                .Include(r => r.Ingredients)
+                .SingleOrDefaultAsync(r => r.Id == id);
+            if (recipeData == null)
+            {
+                return new RecipeResponse
+                {
+                    Success = false,
+                    Message = "Recipe with this id doesn't exists."
+                };
+            }
+
+            _dbContext.Recipes.Remove(recipeData);
+            await _dbContext.SaveChangesAsync();
+            return new RecipeResponse
+            {
+                Success = true,
+                Message = "Recipe Deleted Successfully."
+            };
         }
 
     }

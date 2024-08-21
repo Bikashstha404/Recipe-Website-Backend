@@ -88,5 +88,19 @@ namespace RecipeManagementSystemAPI.Controllers
                 return BadRequest(response.Message);
             }
         }
+
+        [HttpPost("DeleteRecipe/{id}")]
+        public async Task<IActionResult> DeleteRecipe(Guid id)
+        {
+            var response = await _iRecipe.DeleteRecipe(id);
+            if (response.Success)
+            {
+                return Ok(response.Message);
+            }
+            else
+            {
+                return BadRequest(response.Message);
+            }
+        }
     }
 }

@@ -13,6 +13,6 @@ namespace RecipeManagementSystemApplication.Interface
     {
         Task<RecipeResponse> AddRecipe(Recipe recipe);
         Task<RecipeResponse> EditRecipe(RecipeEditModel recipeEditModel);
-        Task<RecipeResponse> DeleteRecipe();
+        Task<RecipeResponse> DeleteRecipe(Guid id);
     }
 }
