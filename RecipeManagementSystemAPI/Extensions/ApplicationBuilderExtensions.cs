@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 
 namespace RecipeManagementSystemAPI.Extensions
 {
@@ -20,6 +21,7 @@ namespace RecipeManagementSystemAPI.Extensions
 
             app.UseRouting(); // This should be before UseEndpoints
 
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
 
             app.UseAuthorization();

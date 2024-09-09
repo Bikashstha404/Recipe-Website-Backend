@@ -1,4 +1,4 @@
-﻿using RecipeManagementSystemApplication.Models;
+﻿using RecipeManagementSystemApplication.Models.RecipeModels;
 using RecipeManagementSystemDomain.Entities;
 
 namespace RecipeManagementSystemAPI.Mappers

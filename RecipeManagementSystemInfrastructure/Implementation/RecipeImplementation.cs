@@ -1,5 +1,4 @@
 ﻿using RecipeManagementSystemApplication.Interface;
-using RecipeManagementSystemApplication.Models;
 using RecipeManagementSystemDomain.Entities;
 using RecipeManagementSystemDomain.Enums.SubCategory;
 using RecipeManagementSystemDomain.Enums;
@@ -11,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using RecipeManagementSystemApplication.Response;
+using RecipeManagementSystemApplication.Models.RecipeModels;
 
 namespace RecipeManagementSystemInfrastructure.Implementation
 {

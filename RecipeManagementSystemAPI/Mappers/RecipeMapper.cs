@@ -1,4 +1,4 @@
-﻿using RecipeManagementSystemApplication.Models;
+﻿using RecipeManagementSystemApplication.Models.RecipeModels;
 using RecipeManagementSystemDomain.EntitesTypesModel;
 using RecipeManagementSystemDomain.Entities;
 using RecipeManagementSystemDomain.Enums;

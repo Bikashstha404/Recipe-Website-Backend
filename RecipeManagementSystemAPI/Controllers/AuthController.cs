@@ -30,7 +30,7 @@ namespace RecipeManagementSystemAPI.Controllers
             }
             else
             {
-                return BadRequest(response.Message);
+                return BadRequest(new {Message = response.Message });
             }
         }
 
@@ -48,7 +48,7 @@ namespace RecipeManagementSystemAPI.Controllers
             }
             else
             {
-                return BadRequest(response.Message);
+                return BadRequest(new { Message = response.Message });
             }
         }
 
@@ -110,7 +110,7 @@ namespace RecipeManagementSystemAPI.Controllers
             }
             else
             {
-                return BadRequest(response.Message);
+                return BadRequest(new { Message = response.Message });
             }
         }
     }

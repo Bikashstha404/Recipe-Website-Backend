@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using RecipeManagementSystemAPI.Mappers;
 using RecipeManagementSystemApplication.Interface;
-using RecipeManagementSystemApplication.Models;
 using RecipeManagementSystemDomain.Entities;
 using RecipeManagementSystemDomain.Enums.SubCategory;
 using RecipeManagementSystemDomain.Enums;
 using RecipeManagementSystemAPI.Validators;
 using RecipeManagementSystemInfrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using RecipeManagementSystemApplication.Models.RecipeModels;
 
 namespace RecipeManagementSystemAPI.Controllers
 {

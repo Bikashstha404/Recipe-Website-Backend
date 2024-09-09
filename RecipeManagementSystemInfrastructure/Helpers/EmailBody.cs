@@ -19,7 +19,7 @@ namespace RecipeManagementSystemInfrastructure.Helpers
         <p style=""font-size: 16px; color: #555555;"">Please click the button below to choose a new password:</p>
 
         <div style=""text-align: center; margin: 20px 0;"">
-            <a href=""http://localhost:4200/reset-password?email={email}&code={emailToken}"" style=""background-color: #007bff; color: #ffffff; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px;"">Reset Password</a>
+            <a href=""http://localhost:5173/resetPassword?email={email}&code={emailToken}"" style=""background-color: #007bff; color: #ffffff; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-size: 16px;"">Reset Password</a>
         </div>
 
            <p>Email= {email} and Token = {emailToken}</p>

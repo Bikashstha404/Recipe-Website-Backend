@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace RecipeManagementSystemDomain.Enums.SubCategory
 {
-    public enum Appetizers
+    public enum Drinks
     {
-        FingerFoods,
-        Salads,
-        Soups
+        Coke,
+        Sprites,
+        Coffee,
+        Water
     }
 }

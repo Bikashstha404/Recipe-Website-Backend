@@ -8,14 +8,9 @@ namespace RecipeManagementSystemDomain.Enums
 {
     public enum MainCategory
     {
-        EntreesBreakfast,
-        MainDishes,
         Appetizers,
-        //Desserts,
-        //Beverages,
-        //Salads,
-        //Soups,
-        //Snacks,
-        //Sides
+        MainDishes,
+        Desserts,
+        Drinks
     }
 }

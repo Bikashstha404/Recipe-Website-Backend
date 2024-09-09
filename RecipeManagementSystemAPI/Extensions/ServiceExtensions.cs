@@ -91,6 +91,11 @@ namespace RecipeManagementSystemAPI.Extensions
             services.AddScoped<IEmailService, EmailServicemImplementation>();
             services.AddScoped<IRecipe, RecipeImplementation>();
             services.AddScoped<IRecipeMapper, RecipeMapper>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", builder => builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+            });
         }
     }
 }
