@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace RecipeManagementSystemDomain.Enums.SubCategory
 {
-    public enum EntreesBreakfast
+    public enum Desserts
     {
-        Pancakes,
-        Waffles,
-        FrenchToast,
-        Omelets,
-        BreakfastBurritos
+        Cakes,
+        Cookies,
+        Puddings,
+        Pies
     }
 }

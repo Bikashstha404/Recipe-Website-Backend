@@ -61,7 +61,7 @@ namespace RecipeManagementSystemInfrastructure.Implementation
             }
 
             recipeData.Title = recipeEditModel.Title;
-            recipeData.Descripton = recipeEditModel.Descripton;
+            recipeData.Description = recipeEditModel.Description;
             recipeData.PrepTime = recipeEditModel.PrepTime;
             recipeData.Calories = recipeEditModel.Calories;
             recipeData.MainCategory = recipeEditModel.MainCategory;

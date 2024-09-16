@@ -9,7 +9,7 @@ namespace RecipeManagementSystemDomain.Enums.SubCategory
     public enum Drinks
     {
         Coke,
-        Sprites,
+        Sprite,
         Coffee,
         Water
     }

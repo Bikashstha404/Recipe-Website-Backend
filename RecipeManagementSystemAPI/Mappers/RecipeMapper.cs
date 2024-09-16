@@ -12,7 +12,7 @@ namespace RecipeManagementSystemAPI.Mappers
             Recipe recipe = new Recipe
             {
                 Title = recipeModel.Title,
-                Descripton = recipeModel.Descripton,
+                Description = recipeModel.Description,
                 PrepTime = recipeModel.PrepTime,
                 Calories = recipeModel.Calories,
                 MainCategory = recipeModel.MainCategory,

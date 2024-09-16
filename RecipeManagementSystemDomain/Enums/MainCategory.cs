@@ -8,9 +8,9 @@ namespace RecipeManagementSystemDomain.Enums
 {
     public enum MainCategory
     {
-        Appetizers,
-        MainDishes,
-        Desserts,
-        Drinks
+        Appetizers = 0,
+        MainDishes = 1,
+        Desserts = 2,
+        Drinks = 3,
     }
 }

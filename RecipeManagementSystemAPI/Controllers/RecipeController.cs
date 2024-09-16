@@ -55,17 +55,17 @@ namespace RecipeManagementSystemAPI.Controllers
                 }
                 catch (ArgumentException ex)
                 {
-                    return BadRequest(ex.Message);
+                    return BadRequest(new { Message = ex.Message });
                 }
 
                 var response = await _iRecipe.AddRecipe(recipe);
                 if (response.Success)
                 {
-                    return Ok(response.Message);
+                    return Ok(new { Message = response.Message });
                 }
                 else
                 {
-                    return BadRequest(response.Message);
+                    return BadRequest(new { Message = response.Message });
                 }
             }
             else

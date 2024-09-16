@@ -12,7 +12,7 @@ namespace RecipeManagementSystemAPI.Validators
             {
                 case MainCategory.Appetizers:
                     if (!Enum.IsDefined(typeof(Appetizers), recipe.SubCategory))
-                        throw new ArgumentException("Invalid SubCategory for EntreesBreakfast.");
+                        throw new ArgumentException("Invalid SubCategory for Appetizers.");
                     break;
 
                 case MainCategory.MainDishes:
@@ -22,12 +22,12 @@ namespace RecipeManagementSystemAPI.Validators
 
                 case MainCategory.Desserts:
                     if (!Enum.IsDefined(typeof(Desserts), recipe.SubCategory))
-                        throw new ArgumentException("Invalid SubCategory for Appetizers.");
+                        throw new ArgumentException("Invalid SubCategory for Desserts.");
                     break;
 
                 case MainCategory.Drinks:
                     if (!Enum.IsDefined(typeof(Drinks), recipe.SubCategory))
-                        throw new ArgumentException("Invalid SubCategory for Appetizers.");
+                        throw new ArgumentException("Invalid SubCategory for Drinks.");
                     break;
 
                 default:
